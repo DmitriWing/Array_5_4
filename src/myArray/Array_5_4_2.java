@@ -53,12 +53,36 @@ int[][] playersArray = {
     }
     
     // d. лучшего игрока чемпионата
-    int bestPlayer;
-     public int bestPlayer(){
+    
+     public int[] bestPlayer(){
+         int maxGoals = 0;
+        // define maximum goals per player
+        for (int i = 0; i < playersArray.length; i++) {
+            int goalsTotal = IntStream.of(playersArray[i]).sum();
+            if (goalsTotal > maxGoals) {
+                maxGoals = goalsTotal;
+            }
+        }
+        // define how many players with max goals
+        int maxGoalsQty = 0;
+        for (int i = 0; i < playersArray.length; i++) {
+            int goalsTotal = IntStream.of(playersArray[i]).sum();
+            if (goalsTotal == maxGoals) {
+                maxGoalsQty++;                
+            }
+        }
+        // create an array with best players positions
+        int[] bestPlayers = new int[maxGoalsQty];
+        int k = 0;
+        for (int i = 0; i < playersArray.length; i++) {
+            int goalsTotal = IntStream.of(playersArray[i]).sum();
+            if (goalsTotal == maxGoals) {
+                bestPlayers[k] = i+1;
+                k++;
+            }
+        }
          
-         
-         
-         return bestPlayer;
+         return bestPlayers;
      }
     
     

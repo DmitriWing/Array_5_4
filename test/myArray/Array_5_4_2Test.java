@@ -67,16 +67,17 @@ public class Array_5_4_2Test {
     /**
      * Test of bestPlayer method, of class Array_5_4_2.
      */
-    @Ignore
     @Test
     public void testBestPlayer() {
         System.out.println("bestPlayer");
         Array_5_4_2 instance = new Array_5_4_2();
-        int expResult = 0;
-        int result = instance.bestPlayer();
-        assertEquals(expResult, result);
+        int[] expResult = {9, 10};
+        int[] result = instance.bestPlayer();
+        assertArrayEquals(expResult, result);
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+
+    
     
 }
